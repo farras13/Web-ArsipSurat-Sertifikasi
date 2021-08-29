@@ -74,6 +74,7 @@ class Welcome extends CI_Controller
 				'waktu_input' => date('Y-m-d H:i'),
 			);
 			$this->sm->insData($data);
+			$this->session->set_flashdata('msg', 'Data berhasil ditambahkan !');
 			redirect('welcome', 'refresh');
 		}
 	}
@@ -99,6 +100,7 @@ class Welcome extends CI_Controller
 				);
 				$w = array('id_surat' => $this->input->post('idSurat'),);
 				$this->sm->updData($data, $w);
+				$this->session->set_flashdata('msg', 'Data berhasil diubah !');
 				redirect('welcome', 'refresh');
 			}
 		} else {
@@ -110,6 +112,7 @@ class Welcome extends CI_Controller
 			);
 			$w = array('id_surat' => $this->input->post('idSurat'),);
 			$this->sm->updData($data, $w);
+			$this->session->set_flashdata('msg', 'Data berhasil diubah !');
 			redirect('welcome', 'refresh');
 		}
 	}
@@ -119,6 +122,7 @@ class Welcome extends CI_Controller
 		$id = $this->uri->segment(3);
 		$w = array('id_surat' => $id,);
 		$this->sm->delData($w);
+		$this->session->set_flashdata('msg', 'Data berhasil dihapus !');
 		redirect('welcome', 'refresh');
 	}
 
