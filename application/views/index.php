@@ -2,7 +2,7 @@
 	<h1 class="mt-4">Arsip Surat</h1>
 	<p>Berikut ini adalah surat-surat yang telah terbit dan diarsipkan,<br>Klik "lihat" pada kolom aksi untuk menampilkan surat.</p>
 </div>
-<form action="" method="post" style="margin-top: 45px;">
+<form action="" method="get" style="margin-top: 45px;">
 	<div class="row" style="margin-left: 50px;">
 		<div style="flex: 0 0 auto; width: 10%;">
 			<p style="padding-top: 4px; font-weight: bold;">Cari surat: </p>
@@ -10,7 +10,7 @@
 		<div class="col-md-8">
 			<div class="form-group has-search">
 				<span class="fa fa-search form-control-feedback"></span>
-				<input type="text" class="form-control" placeholder="Search" style=" border-radius: 25px;">
+				<input type="text" class="form-control" placeholder="Search" style=" border-radius: 25px;" name="cari">
 			</div>
 		</div>
 		<div class="col-md-2">

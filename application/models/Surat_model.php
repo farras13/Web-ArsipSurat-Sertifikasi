@@ -14,6 +14,16 @@ class Surat_model extends CI_Model {
 		}
 	}
 
+	public function cari($match)
+	{
+		$this->db->like('no_surat', $match, 'both'); 
+		$this->db->or_like('kategori', $match, 'both');
+		$this->db->or_like('judul', $match, 'both');
+		$this->db->or_like('file_surat', $match, 'both');
+		$this->db->or_like('waktu_input', $match, 'both');
+		return $this->db->get('surat');			
+	}
+
 	public function insData($data)
 	{
 		$this->db->insert('surat', $data);
