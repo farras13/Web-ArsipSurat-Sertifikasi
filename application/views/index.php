@@ -39,7 +39,7 @@
 						<td><?= $s->waktu_input ?></td>
 						<td>
 							<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal<?=  $s->id_surat  ?>"> Hapus </button>
-							<a class="btn btn-warning" href=""><b>Unduh</b></a>
+							<a class="btn btn-warning" href="<?= base_url('welcome/download/'). $s->file_surat ?>"><b>Unduh</b></a>
 							<a class="btn btn-primary" href="<?= base_url('welcome/lihat/') . $s->id_surat ?>"><b>Lihat > ></b></a>
 						</td>
 					</tr>

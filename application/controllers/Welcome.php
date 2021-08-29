@@ -40,42 +40,6 @@ class Welcome extends CI_Controller
 		$this->load->view('template', $data);
 	}
 
-	public function editData()
-	{
-		if ($this->input->post('surat') != null) {
-			$config['upload_path'] = './uploads/surat/';
-			$config['allowed_types'] = 'pdf';
-
-			$this->load->library('upload', $config);
-
-			if (!$this->upload->do_upload('surat')) {
-				$error = array('error' => $this->upload->display_errors());
-				echo $this->upload->display_errors();
-			} else {
-				$data = array(
-					'no_surat' => $this->input->post('no'),
-					'kategori' => $this->input->post('kategori'),
-					'judul' => $this->input->post('judul'),
-					'file_surat' => $this->upload->data('file_name'),
-					'waktu_input' => date('Y-m-d H:i'),
-				);
-				$w = array('id_surat' => $this->input->post('idSurat'), );
-				$this->sm->updData($data, $w);
-				redirect('welcome', 'refresh');
-			}
-		}else {
-			$data = array(
-				'no_surat' => $this->input->post('no'),
-				'kategori' => $this->input->post('kategori'),
-				'judul' => $this->input->post('judul'),
-				'waktu_input' => date('Y-m-d H:i'),
-			);
-			$w = array('id_surat' => $this->input->post('idSurat'), );
-			$this->sm->updData($data, $w);
-			redirect('welcome', 'refresh');
-		}
-	}
-
 	public function lihat()
 	{
 		$id = $this->uri->segment(3);
@@ -114,11 +78,52 @@ class Welcome extends CI_Controller
 		}
 	}
 
+	public function editData()
+	{
+		if ($this->input->post('surat') != null) {
+			$config['upload_path'] = './uploads/surat/';
+			$config['allowed_types'] = 'pdf';
+
+			$this->load->library('upload', $config);
+
+			if (!$this->upload->do_upload('surat')) {
+				$error = array('error' => $this->upload->display_errors());
+				echo $this->upload->display_errors();
+			} else {
+				$data = array(
+					'no_surat' => $this->input->post('no'),
+					'kategori' => $this->input->post('kategori'),
+					'judul' => $this->input->post('judul'),
+					'file_surat' => $this->upload->data('file_name'),
+					'waktu_input' => date('Y-m-d H:i'),
+				);
+				$w = array('id_surat' => $this->input->post('idSurat'),);
+				$this->sm->updData($data, $w);
+				redirect('welcome', 'refresh');
+			}
+		} else {
+			$data = array(
+				'no_surat' => $this->input->post('no'),
+				'kategori' => $this->input->post('kategori'),
+				'judul' => $this->input->post('judul'),
+				'waktu_input' => date('Y-m-d H:i'),
+			);
+			$w = array('id_surat' => $this->input->post('idSurat'),);
+			$this->sm->updData($data, $w);
+			redirect('welcome', 'refresh');
+		}
+	}
+
 	public function hapusData()
 	{
 		$id = $this->uri->segment(3);
 		$w = array('id_surat' => $id,);
 		$this->sm->delData($w);
 		redirect('welcome', 'refresh');
+	}
+
+	public function download($file)
+	{
+		force_download('uploads/surat/'.$file,NULL);
 	}
 }

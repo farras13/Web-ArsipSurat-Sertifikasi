@@ -11,7 +11,7 @@
 	</div>
 	<div class="col-md-12 mb-4">
 		<a href="<?= base_url('') ?>" class="btn btn-danger"><< Kembali</a>
-		<a href="" class="btn btn-primary">Unduh</a>
+		<a  href="<?= base_url('welcome/download/'). $lihat->file_surat ?>" class="btn btn-primary">Unduh</a>
 		<a href="<?= base_url('welcome/edit/').$lihat->id_surat ?>" class="btn btn-warning">Edit/Ganti File</a>
 	</div>
 </div>
