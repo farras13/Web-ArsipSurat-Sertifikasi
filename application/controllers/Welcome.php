@@ -67,4 +67,12 @@ class Welcome extends CI_Controller
 			redirect('welcome', 'refresh');
 		}
 	}
+
+	public function hapusData()
+	{
+		$id = $this->uri->segment(3);
+		$w = array('id_surat' => $id, );
+		$this->sm->delData($w);
+		redirect('welcome', 'refresh');
+	}
 }

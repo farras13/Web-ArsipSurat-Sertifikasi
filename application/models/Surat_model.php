@@ -29,6 +29,11 @@ class Surat_model extends CI_Model {
 		$this->db->insert('surat', $data);
 	}
 
+	public function delData($w)
+	{
+		$this->db->delete('surat', $w);
+	}
+
 }
 
 /* End of file Surat_model.php */

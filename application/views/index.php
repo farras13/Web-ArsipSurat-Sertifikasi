@@ -31,16 +31,16 @@
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach($surat as $s) { ?>
+				<?php foreach ($surat as $s) { ?>
 					<tr>
 						<td><?= $s->no_surat ?></td>
 						<td><?= $s->kategori ?></td>
 						<td><?= $s->judul ?></td>
 						<td><?= $s->waktu_input ?></td>
 						<td>
-							<a class="btn btn-danger" href=""><b>Hapus</b></a>
+							<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal<?=  $s->id_surat  ?>"> Hapus </button>
 							<a class="btn btn-warning" href=""><b>Unduh</b></a>
-							<a class="btn btn-primary" href="<?= base_url('welcome/lihat/').$s->id_surat ?>"><b>Lihat > ></b></a>
+							<a class="btn btn-primary" href="<?= base_url('welcome/lihat/') . $s->id_surat ?>"><b>Lihat > ></b></a>
 						</td>
 					</tr>
 				<?php } ?>
@@ -48,6 +48,6 @@
 		</table>
 	</div>
 	<div class="col-md-3">
-		<a href="<?= base_url('welcome/unggah')?>" class="btn btn-dark" style="box-shadow: 2px 2px 2px rgba(0,0,0,0.8);">Arsipkan Surat..</a>
+		<a href="<?= base_url('welcome/unggah') ?>" class="btn btn-dark" style="box-shadow: 2px 2px 2px rgba(0,0,0,0.8);">Arsipkan Surat..</a>
 	</div>
 </div>
