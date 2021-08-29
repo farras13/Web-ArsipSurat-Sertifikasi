@@ -10,7 +10,7 @@
 
 <div class="row" style="margin-left: 40px;margin-top:5px; margin-right: 30px;">
 	<div class="col-md-12 mb-4">
-		<form action="" method="post" style="margin-top: 35px;">
+		<form action="<?= base_url('welcome/tambahData') ?>" method="post" enctype="multipart/form-data" style="margin-top: 35px;">
 			<div class="mb-3 row">
 				<label for="no" class="col-sm-2 col-form-label">Nomor Surat</label>
 				<div class="col-sm-10">
@@ -38,7 +38,7 @@
 			<div class="mb-3 row">
 				<label for="surat" class="col-sm-2 col-form-label">File Surat (PDF) </label>
 				<div class="col-sm-10">
-					<input type="file" class="form-control" name="surat" id="surat" style="width: 60%;">
+					<input type="file" class="form-control" name="surat" id="surat" accept="application/pdf" style="width: 60%;">
 				</div>
 			</div>
 			<div class="mb-3 row">
