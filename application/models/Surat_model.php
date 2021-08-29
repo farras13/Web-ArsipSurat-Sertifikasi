@@ -29,6 +29,11 @@ class Surat_model extends CI_Model {
 		$this->db->insert('surat', $data);
 	}
 
+	public function updData($data, $w)
+	{
+		$this->db->update('surat', $data, $w);		
+	}
+
 	public function delData($w)
 	{
 		$this->db->delete('surat', $w);

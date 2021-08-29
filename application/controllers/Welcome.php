@@ -10,13 +10,14 @@ class Welcome extends CI_Controller
 		//Do your magic here
 		$this->load->model('surat_model', 'sm');
 		date_default_timezone_set("Asia/Jakarta");
+		error_reporting(0);
 	}
 
 	public function index()
 	{
 		$key = $this->input->get('cari');
-		if ($key == null) {			
-			$data['surat'] = $this->sm->getData(null)->result();			
+		if ($key == null) {
+			$data['surat'] = $this->sm->getData(null)->result();
 		} else {
 			$data['surat'] = $this->sm->cari($key)->result();
 		}
@@ -30,11 +31,56 @@ class Welcome extends CI_Controller
 		$this->load->view('template', $data);
 	}
 
+	public function edit()
+	{
+		$id = $this->uri->segment(3);
+		$w = array('id_surat' => $id,);
+		$data['surat'] = $this->sm->getData($w)->row();
+		$data['view_name'] = "rubah";
+		$this->load->view('template', $data);
+	}
+
+	public function editData()
+	{
+		if ($this->input->post('surat') != null) {
+			$config['upload_path'] = './uploads/surat/';
+			$config['allowed_types'] = 'pdf';
+
+			$this->load->library('upload', $config);
+
+			if (!$this->upload->do_upload('surat')) {
+				$error = array('error' => $this->upload->display_errors());
+				echo $this->upload->display_errors();
+			} else {
+				$data = array(
+					'no_surat' => $this->input->post('no'),
+					'kategori' => $this->input->post('kategori'),
+					'judul' => $this->input->post('judul'),
+					'file_surat' => $this->upload->data('file_name'),
+					'waktu_input' => date('Y-m-d H:i'),
+				);
+				$w = array('id_surat' => $this->input->post('idSurat'), );
+				$this->sm->updData($data, $w);
+				redirect('welcome', 'refresh');
+			}
+		}else {
+			$data = array(
+				'no_surat' => $this->input->post('no'),
+				'kategori' => $this->input->post('kategori'),
+				'judul' => $this->input->post('judul'),
+				'waktu_input' => date('Y-m-d H:i'),
+			);
+			$w = array('id_surat' => $this->input->post('idSurat'), );
+			$this->sm->updData($data, $w);
+			redirect('welcome', 'refresh');
+		}
+	}
+
 	public function lihat()
 	{
 		$id = $this->uri->segment(3);
-		$w = array('id_surat' => $id, );
-		$data['surat'] = $this->sm->getData($w)->row();
+		$w = array('id_surat' => $id,);
+		$data['lihat'] = $this->sm->getData($w)->row();
 		$data['view_name'] = "lihat";
 		$this->load->view('template', $data);
 	}
@@ -71,7 +117,7 @@ class Welcome extends CI_Controller
 	public function hapusData()
 	{
 		$id = $this->uri->segment(3);
-		$w = array('id_surat' => $id, );
+		$w = array('id_surat' => $id,);
 		$this->sm->delData($w);
 		redirect('welcome', 'refresh');
 	}

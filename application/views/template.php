@@ -35,8 +35,8 @@
 			</div>
 		</div>
 	</div>
-
-	<?php foreach ($surat as $s) { ?>
+	
+	<?php if($surat != null){ foreach ($surat as $s) { ?>
 	<!-- Modal -->
 	<div class="modal fade" id="exampleModal<?= $s->id_surat; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -55,7 +55,7 @@
 			</div>
 		</div>
 	</div>
-	<?php } ?>
+	<?php }} ?>
 	<!-- Bootstrap core JS-->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>

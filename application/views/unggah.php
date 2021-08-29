@@ -43,7 +43,7 @@
 			</div>
 			<div class="mb-3 row">
 				<div class="col-sm-3 mt-3">
-					<a href="" class="btn btn-danger me-3"> << Kembali</a>
+					<a href="<?= base_url('') ?>" class="btn btn-danger me-3"> << Kembali</a>
 					<button type="submit" class="btn btn-primary" >Simpan</button>
 				</div>
 			</div>
