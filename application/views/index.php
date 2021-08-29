@@ -31,12 +31,12 @@
 				</tr>
 			</thead>
 			<tbody>
-				<?php for ($i = 0; $i < 5; $i++) { ?>
+				<?php foreach($surat as $s) { ?>
 					<tr>
-						<td>2020/PD3/TU/001</td>
-						<td>Pengumuman</td>
-						<td>Nota Dinas WFH</td>
-						<td>2021-06-21 17:23</td>
+						<td><?= $s->no_surat ?></td>
+						<td><?= $s->kategori ?></td>
+						<td><?= $s->judul ?></td>
+						<td><?= $s->waktu_input ?></td>
 						<td>
 							<a class="btn btn-danger" href=""><b>Hapus</b></a>
 							<a class="btn btn-warning" href=""><b>Unduh</b></a>

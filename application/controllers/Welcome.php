@@ -14,7 +14,8 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$data['view_name'] = "index";
-		$this->load->view('template',$data);
+		$data['surat'] = $this->sm->getData(null)->result();
+		$this->load->view('template', $data);
 	}
 
 	public function unggah()
