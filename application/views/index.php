@@ -40,7 +40,7 @@
 						<td>
 							<a class="btn btn-danger" href=""><b>Hapus</b></a>
 							<a class="btn btn-warning" href=""><b>Unduh</b></a>
-							<a class="btn btn-primary" href="<?= base_url('welcome/lihat')?>"><b>Lihat > ></b></a>
+							<a class="btn btn-primary" href="<?= base_url('welcome/lihat/').$s->id_surat ?>"><b>Lihat > ></b></a>
 						</td>
 					</tr>
 				<?php } ?>

@@ -32,6 +32,9 @@ class Welcome extends CI_Controller
 
 	public function lihat()
 	{
+		$id = $this->uri->segment(3);
+		$w = array('id_surat' => $id, );
+		$data['surat'] = $this->sm->getData($w)->row();
 		$data['view_name'] = "lihat";
 		$this->load->view('template', $data);
 	}
