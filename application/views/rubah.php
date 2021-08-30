@@ -15,13 +15,13 @@
 				<label for="no" class="col-sm-2 col-form-label">Nomor Surat</label>
 				<div class="col-sm-10">
 					<input type="text" id="idSurat" name="idSurat" value="<?= $surat->id_surat ?>" readonly hidden>
-					<input type="text" class="form-control" style="width:30%;" id="no" name="no" value="<?= $surat->no_surat ?>">
+					<input type="text" class="form-control" style="width:30%;" id="no" name="no" value="<?= $surat->no_surat ?>" required>
 				</div>
 			</div>
 			<div class="mb-3 row">
 				<label for="no" class="col-sm-2 col-form-label">Kategori</label>
 				<div class="col-sm-10">
-					<select name="kategori" id="kategori" class="form-select" style="width: 40%;">
+					<select name="kategori" id="kategori" class="form-select" style="width: 40%;" required>
 						<option <?php if($surat->kategori == "Undangan"){ echo 'selected="selected"'; } ?> value="Undangan">Undangan</option>
 						<option <?php if($surat->kategori == "Pengumuman") : echo 'selected="selected"'; endif; ?>value="Pengumuman">Pengumuman</option>
 						<option <?php if($surat->kategori == "Nota Dinas") : echo 'selected="selected"'; endif; ?>value="Nota Dinas">Nota Dinas</option>
@@ -33,7 +33,7 @@
 			<div class="mb-3 row">
 				<label for="judul" class="col-sm-2 col-form-label">Judul</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="judul" id="judul" value="<?= $surat->judul ?>">
+					<input type="text" class="form-control" name="judul" id="judul" value="<?= $surat->judul ?>" required>
 				</div>
 			</div>
 			<div class="mb-3 row">

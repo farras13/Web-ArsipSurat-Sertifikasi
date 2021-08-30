@@ -21,7 +21,6 @@
 		<!-- Sidebar-->
 		<div class="border-end bg-white" id="sidebar-wrapper">
 			<div class="sidebar-heading bg-light">Menu</div>
-
 			<div class="list-group list-group-flush">
 				<a class="list-group-item list-group-item-action list-group-item-light p-3" href="<?= base_url('') ?>"><i class="fa fa-star" aria-hidden="true"></i>&nbsp; Arsip</a>
 				<a class="list-group-item list-group-item-action list-group-item-light p-3" href="<?= base_url('welcome/about') ?>"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp; About</a>
@@ -31,12 +30,14 @@
 		<div id="page-content-wrapper">
 			<!-- Page content-->
 			<div class="container-fluid">
-			<?php if($this->session->flashdata('msg')): ?>
-				<div class="alert alert-success alert-dismissible fade show" role="alert">
-					<?php echo $this->session->flashdata('msg'); ?>
-					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-				</div>
-			<?php endif; ?>
+				<!-- alert success -->
+				<?php if ($this->session->flashdata('msg')) : ?>
+					<div class="alert alert-success alert-dismissible fade show" role="alert">
+						<?php echo $this->session->flashdata('msg'); ?>
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+				<?php endif; ?>
+				<!-- konten -->
 				<?php $this->load->view($view_name); ?>
 			</div>
 		</div>
@@ -49,15 +50,24 @@
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							<center>
+								<h4 class="modal-title" id="exampleModalLabel" style="margin-left: 205px;">Alert</h4>
+							</center>
+							<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
 						</div>
 						<div class="modal-body">
 							Apakah anda yakin ingin menghapus arsip surat ini ?
 						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-							<a href="<?= base_url('welcome/hapusData/') . $s->id_surat ?>" class="btn btn-primary">Ya!</a>
+						<hr>
+						<div class="container mb-2">
+							<div class="row justify-content-center">
+								<div class="col">
+									<button type="button" class="btn btn-secondary w-100 ml-2" data-bs-dismiss="modal">Batal</button>
+								</div>
+								<div class="col">
+									<a class="btn btn-danger w-100 mr-2" href="<?= base_url('welcome/hapusData/') . $s->id_surat ?>">Ya!</a>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

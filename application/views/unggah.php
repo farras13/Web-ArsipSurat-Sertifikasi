@@ -14,13 +14,13 @@
 			<div class="mb-3 row">
 				<label for="no" class="col-sm-2 col-form-label">Nomor Surat</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" style="width:30%;" id="no" name="no">
+					<input type="text" class="form-control" style="width:30%;" id="no" name="no" required>
 				</div>
 			</div>
 			<div class="mb-3 row">
 				<label for="no" class="col-sm-2 col-form-label">Kategori</label>
 				<div class="col-sm-10">
-					<select name="kategori" id="kategori" class="form-select" style="width: 40%;">
+					<select name="kategori" id="kategori" class="form-select" style="width: 40%;" required>
 						<option value="Undangan">Undangan</option>
 						<option value="Pengumuman">Pengumuman</option>
 						<option value="Nota Dinas">Nota Dinas</option>
@@ -32,13 +32,13 @@
 			<div class="mb-3 row">
 				<label for="judul" class="col-sm-2 col-form-label">Judul</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" name="judul" id="judul">
+					<input type="text" class="form-control" name="judul" id="judul" required>
 				</div>
 			</div>
 			<div class="mb-3 row">
 				<label for="surat" class="col-sm-2 col-form-label">File Surat (PDF) </label>
 				<div class="col-sm-10">
-					<input type="file" class="form-control" name="surat" id="surat" accept="application/pdf" style="width: 60%;">
+					<input type="file" class="form-control" name="surat" id="surat" accept="application/pdf" style="width: 60%;" required>
 				</div>
 			</div>
 			<div class="mb-3 row">
